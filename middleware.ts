@@ -10,24 +10,28 @@ export default async function middleware(req: NextRequest) {
     return NextResponse.next();
   }
   if (token) {
-    await fetch(`${process.env.NEXT_PUBLIC_API}/auth/admin/get-admin`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }).then((response) => {
-      if (response.ok) {
-        if (isAuthRoute) {
-          return NextResponse.redirect(new URL("/", req.url));
-        }
-        return NextResponse.next();
-      } else {
-        if (!isAuthRoute) {
-          return NextResponse.redirect(new URL("/auth/login", req.url));
-        }
-        return NextResponse.next();
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API}/auth/admin/get-admin`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       }
-    });
+    );
+
+    if (response.ok) {
+      if (isAuthRoute) {
+        return NextResponse.redirect(new URL("/", req.url));
+      }
+      return NextResponse.next();
+    } else {
+      // Handle invalid token case
+      if (!isAuthRoute) {
+        return NextResponse.redirect(new URL("/auth/login", req.url));
+      }
+      return NextResponse.next();
+    }
   } else {
     if (!isAuthRoute) {
       return NextResponse.redirect(new URL("/auth/login", req.url));
