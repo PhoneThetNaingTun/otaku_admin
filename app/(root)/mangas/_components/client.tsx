@@ -25,7 +25,7 @@ export const MangaPageClient = () => {
         },
       })
     );
-  }, []);
+  }, [dispatch]);
 
   const mangaData = mangas.map((manga) => {
     const id = manga.id;

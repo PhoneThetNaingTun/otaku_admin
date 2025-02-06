@@ -86,7 +86,7 @@ export const NewMangaDialog = () => {
   useEffect(() => {
     dispatch(getAuthors({}));
     dispatch(getCategories({}));
-  }, []);
+  }, [dispatch]);
 
   return (
     <Dialog modal={false} open={open} onOpenChange={setOpen}>

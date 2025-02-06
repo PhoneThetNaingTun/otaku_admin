@@ -47,7 +47,7 @@ export const CategoryDetailPageClient = () => {
   }, [category]);
   useEffect(() => {
     dispatch(getCategory({ id: categoryId as string }));
-  }, [dispatch]);
+  }, [dispatch, categoryId]);
 
   const handleUpdateCategory = () => {
     if (!category?.category_name || !category.id) {

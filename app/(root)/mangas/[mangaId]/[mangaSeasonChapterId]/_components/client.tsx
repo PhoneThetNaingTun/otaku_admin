@@ -28,7 +28,7 @@ export const MangaSeasonChapterDetailPageClient = () => {
         })
       );
     }
-  }, [isLoaded]);
+  }, [isLoaded, dispatch, mangaSeasonChapterId]);
   const handleDeletePage = (id: string) => {
     dispatch(
       DeletePage({

@@ -43,7 +43,7 @@ export const SeasonDetailPageClient = () => {
         id: season.id,
       });
     }
-  }, [season]);
+  }, [dispatch, seasonId, season]);
 
   const handleUpdateSeason = () => {
     if (!season?.season || !season.id) {

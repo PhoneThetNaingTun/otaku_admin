@@ -25,7 +25,7 @@ export const SeasonPageClient = () => {
         },
       })
     );
-  }, []);
+  }, [dispatch, toast]);
   if (!isloaded) {
     return (
       <div className="w-full h-screen flex justify-center items-center">

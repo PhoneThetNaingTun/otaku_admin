@@ -45,7 +45,7 @@ export const ChapterDetailPageClient = () => {
   }, [chapter]);
   useEffect(() => {
     dispatch(GetChapter({ id: chapterId as string }));
-  }, [dispatch]);
+  }, [dispatch, chapterId]);
 
   const handleUpdateChapter = () => {
     if (!updateChapter.chapter || !updateChapter.id) {

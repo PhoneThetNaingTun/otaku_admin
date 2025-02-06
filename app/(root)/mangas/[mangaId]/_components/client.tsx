@@ -89,7 +89,7 @@ export const MangaDetailPageClient = () => {
     dispatch(getMangaSeasonByManga({ mangaId: mangaId as string }));
     dispatch(GetMangaSeasonChapters({}));
     dispatch(GetChapters({}));
-  }, []);
+  }, [dispatch, mangaId]);
   const findCategory = mangaCategories.filter(
     (mangaCategory) => mangaCategory.mangaId === mangaId
   );
@@ -102,7 +102,7 @@ export const MangaDetailPageClient = () => {
       });
       setIsLoaded(true);
     }
-  }, [manga]);
+  }, [manga, categoryIds]);
 
   if (!isLoaded || getAuthorLoading || getCategoryLoading || getMangaLoading) {
     return (
