@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
 import { AppSidebar } from "@/components/app-sidebar";
 import {

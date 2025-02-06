@@ -1,7 +1,6 @@
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { Bookmark } from "lucide-react";
 import React from "react";
-import { MangaSeasonChapterDeleteDialog } from "./MangaSeasonChapterDeleteDialog";
 import { TrashIconDeleteDialog } from "@/components/TrashIconDeleteDialog";
 import { usePathname } from "next/navigation";
 import Link from "next/link";

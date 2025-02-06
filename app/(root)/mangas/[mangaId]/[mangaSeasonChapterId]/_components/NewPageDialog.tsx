@@ -78,8 +78,7 @@ export const NewPageDialog = ({ mangaSeasonChapterId }: Prop) => {
         <CldUploadWidget
           uploadPreset={`${process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET}`}
           options={{ folder: "page", maxFiles: 1 }}
-          onSuccess={(result) => {
-            //@ts-expect-error
+          onSuccess={(result: any) => {
             const secureUrl = result?.info?.secure_url;
             if (secureUrl) {
               setNewPage((prev) => ({
