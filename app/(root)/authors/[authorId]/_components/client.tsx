@@ -37,7 +37,6 @@ export const AuthorDetailPageClient = () => {
   const author = authors.find((category) => category.id === authorId);
 
   useEffect(() => {
-    dispatch(getAuthor({ id: authorId as string }));
     if (author) {
       setUpdateAuthor({
         author_name: author.author_name,
@@ -45,6 +44,9 @@ export const AuthorDetailPageClient = () => {
       });
     }
   }, [author]);
+  useEffect(() => {
+    dispatch(getAuthor({ id: authorId as string }));
+  }, []);
 
   const handleUpdateAuthor = () => {
     if (!updateAuthor?.author_name || !updateAuthor.id) {

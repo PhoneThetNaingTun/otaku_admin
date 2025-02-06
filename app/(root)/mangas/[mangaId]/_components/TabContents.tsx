@@ -1,4 +1,3 @@
-import { TabsContent } from "@/components/ui/tabs";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 
 import React from "react";

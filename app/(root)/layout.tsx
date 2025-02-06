@@ -1,6 +1,5 @@
 "use client";
-import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { getAdminData } from "@/store/Slices/AuthSlice";
+
 import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import { AppSidebar } from "@/components/app-sidebar";
@@ -9,7 +8,6 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
-  BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Separator } from "@/components/ui/separator";
@@ -23,7 +21,6 @@ import { LogOut } from "@/components/LogOut";
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   const [isLoaded, setIsLoaded] = React.useState(false);
-  const router = useRouter();
   const pathname = usePathname();
   const segments = pathname.split("/").filter(Boolean);
   useEffect(() => {

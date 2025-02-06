@@ -98,9 +98,11 @@ export const MangaSeasonChapterDetailPageClient = () => {
           className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
           onClick={() => setSelectedImage(null)} // Close when clicking the background
         >
-          <img
+          <Image
             src={selectedImage}
             alt="Selected"
+            width={1000}
+            height={1000}
             className="max-w-full max-h-full object-contain"
           />
         </div>

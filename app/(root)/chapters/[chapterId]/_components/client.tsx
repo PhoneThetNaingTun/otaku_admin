@@ -12,17 +12,10 @@ import { UpdateButton } from "@/components/UpdateButton";
 import { useToast } from "@/hooks/use-toast";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import {
-  DeleteAuthor,
-  getAuthor,
-  UpdateAuthor,
-} from "@/store/Slices/AuthorSlice";
-import {
   DeleteChapter,
   GetChapter,
   UpdateChapter,
 } from "@/store/Slices/ChapterSlice";
-
-import { UpdateAuthorPayload } from "@/types/author";
 import { UpdateChapterPayload } from "@/types/chapter";
 import { useParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -43,7 +36,6 @@ export const ChapterDetailPageClient = () => {
   const chapter = chapters.find((category) => category.id === chapterId);
 
   useEffect(() => {
-    dispatch(GetChapter({ id: chapterId as string }));
     if (chapter) {
       setUpdateChapter({
         chapter: chapter.chapter,
@@ -51,6 +43,9 @@ export const ChapterDetailPageClient = () => {
       });
     }
   }, [chapter]);
+  useEffect(() => {
+    dispatch(GetChapter({ id: chapterId as string }));
+  }, [dispatch]);
 
   const handleUpdateChapter = () => {
     if (!updateChapter.chapter || !updateChapter.id) {

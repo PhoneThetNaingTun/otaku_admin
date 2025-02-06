@@ -13,7 +13,6 @@ import { RefreshCcw } from "lucide-react";
 
 export function LoginForm({
   className,
-  ...props
 }: React.ComponentPropsWithoutRef<"form">) {
   const [login, setLogin] = useState<LoginPayload>({ email: "", password: "" });
   const router = useRouter();

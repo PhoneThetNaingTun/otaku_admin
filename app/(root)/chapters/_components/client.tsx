@@ -23,7 +23,7 @@ export const ChapterPageClient = () => {
         },
       })
     );
-  }, []);
+  }, [dispatch]);
 
   if (!isLoaded) {
     return (

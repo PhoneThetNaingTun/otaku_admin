@@ -6,7 +6,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
   Select,
@@ -18,13 +17,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { CreateCategory } from "@/store/Slices/CategorySlice";
+import { useAppDispatch } from "@/store/hooks";
 import { CreateMangaSeasonChapter } from "@/store/Slices/MangaSeasonChapterSlice";
-import { CreateMangaSeason } from "@/store/Slices/MangaSeasonSlice";
-import { NewCategoryPayload } from "@/types/catrgory";
 import { Chapter } from "@/types/chapter";
-import { newMangaSeasonPayload } from "@/types/mangaSeason";
 import { NewMangaSeasonChapterPayload } from "@/types/mangaSeasonChapter";
 import { Bookmark, RefreshCcw } from "lucide-react";
 import React, { useState } from "react";
@@ -48,7 +43,6 @@ export const NewMangaSeasonChapterDialog = ({
       mangaSeasonId,
       chapterId: "",
     });
-  const { seasons } = useAppSelector((state) => state.Season);
   const handleMangaSeasonChapterCreate = () => {
     if (!newMangaSeasonChapter.chapterId) {
       toast({ title: "Season is required", variant: "destructive" });

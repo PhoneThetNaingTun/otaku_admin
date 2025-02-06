@@ -26,7 +26,7 @@ export const CategoryPageClient = () => {
         },
       })
     );
-  }, []);
+  }, [dispatch]);
 
   if (!isloaded) {
     return (

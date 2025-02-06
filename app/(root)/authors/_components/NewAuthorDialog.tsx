@@ -11,7 +11,6 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { CreateAuthor } from "@/store/Slices/AuthorSlice";
-import { CreateCategory } from "@/store/Slices/CategorySlice";
 import { NewAuthorPayload } from "@/types/author";
 import { RefreshCcw } from "lucide-react";
 import React, { useState } from "react";

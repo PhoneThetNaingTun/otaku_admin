@@ -6,7 +6,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
   Select,
@@ -19,9 +18,7 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { CreateCategory } from "@/store/Slices/CategorySlice";
 import { CreateMangaSeason } from "@/store/Slices/MangaSeasonSlice";
-import { NewCategoryPayload } from "@/types/catrgory";
 import { newMangaSeasonPayload } from "@/types/mangaSeason";
 import { Earth, RefreshCcw } from "lucide-react";
 import React, { useState } from "react";

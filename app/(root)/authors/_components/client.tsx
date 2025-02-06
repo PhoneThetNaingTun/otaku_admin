@@ -22,7 +22,7 @@ export const AuthorPageClient = () => {
         onError: () => {},
       })
     );
-  }, []);
+  }, [dispatch]);
 
   if (!isLoaded) {
     return (

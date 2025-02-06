@@ -7,8 +7,6 @@ import { mangaColumn } from "./column";
 import { NewMangaDialog } from "./NewMangaDialog";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { GetMangas } from "@/store/Slices/MangaSlice";
-import { getAuthors } from "@/store/Slices/AuthorSlice";
-import { getCategories } from "@/store/Slices/CategorySlice";
 import Image from "next/image";
 
 export const MangaPageClient = () => {

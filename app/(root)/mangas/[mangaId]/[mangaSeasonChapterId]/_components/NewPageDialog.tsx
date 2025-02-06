@@ -38,6 +38,7 @@ export const NewPageDialog = ({ mangaSeasonChapterId }: Prop) => {
       CreatePage({
         ...newPage,
         onSuccess: (message) => {
+          toast({ title: message });
           setNewPage({
             imgUrl: "",
             mangaSeasonChapterId,
@@ -78,7 +79,7 @@ export const NewPageDialog = ({ mangaSeasonChapterId }: Prop) => {
           uploadPreset={`${process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET}`}
           options={{ folder: "page", maxFiles: 1 }}
           onSuccess={(result) => {
-            //@ts-ignore
+            //@ts-expect-error
             const secureUrl = result?.info?.secure_url;
             if (secureUrl) {
               setNewPage((prev) => ({

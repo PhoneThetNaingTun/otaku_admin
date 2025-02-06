@@ -21,22 +21,19 @@ import React, { useEffect, useState } from "react";
 import { MultiSelect } from "@/components/ui/multi-select";
 import { CldUploadWidget } from "next-cloudinary";
 import { Button } from "@/components/ui/button";
-import { ImagePlusIcon, RefreshCcw, Trash } from "lucide-react";
+import { ImagePlusIcon } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { UpdateButton } from "@/components/UpdateButton";
 import { DeleteButtonDialog } from "@/components/DeleteButtonDialog";
 import { getAuthors } from "@/store/Slices/AuthorSlice";
 import { getCategories } from "@/store/Slices/CategorySlice";
 import { Separator } from "@/components/ui/separator";
-import { DataTable } from "@/components/ui/data-table";
 import { NewMangaSeasonDialog } from "./NewMangaSeasonDialog";
 import { getSeasons } from "@/store/Slices/SeasonSlice";
 import {
   DeleteMangaSeason,
   getMangaSeasonByManga,
 } from "@/store/Slices/MangaSeasonSlice";
-import { SeasonCard } from "./SeasonCard";
-import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TabContents } from "./TabContents";
 import { GetMangaSeasonChapters } from "@/store/Slices/MangaSeasonChapterSlice";
@@ -266,7 +263,7 @@ export const MangaDetailPageClient = () => {
                 uploadPreset={`${process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET}`}
                 options={{ folder: "manga-images" }}
                 onSuccess={(result) => {
-                  //@ts-ignore
+                  //@ts-expect-error
                   const secureUrl = result?.info?.secure_url;
                   if (secureUrl) {
                     setUpdateManga((prev) => ({

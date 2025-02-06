@@ -13,7 +13,7 @@ export const LandingPageClient = () => {
   );
   useEffect(() => {
     dispatch(GetLandingPageData({}));
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
