@@ -101,7 +101,11 @@ export const NewMangaSeasonChapterDialog = ({
             </SelectContent>
           </Select>
         </div>
-        <Button className="bg-red-500" onClick={handleMangaSeasonChapterCreate}>
+        <Button
+          className="bg-red-500"
+          onClick={handleMangaSeasonChapterCreate}
+          disabled={loading}
+        >
           {loading ? <RefreshCcw className="w-4 h-4 animate-spin" /> : "Create"}
         </Button>
       </DialogContent>

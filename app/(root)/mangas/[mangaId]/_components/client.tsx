@@ -102,7 +102,7 @@ export const MangaDetailPageClient = () => {
       });
       setIsLoaded(true);
     }
-  }, [manga, categoryIds]);
+  }, [manga]);
 
   if (!isLoaded || getAuthorLoading || getCategoryLoading || getMangaLoading) {
     return (

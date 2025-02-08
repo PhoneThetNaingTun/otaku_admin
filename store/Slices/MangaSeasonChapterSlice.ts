@@ -51,7 +51,7 @@ export const CreateMangaSeasonChapter = createAsyncThunk(
   "MangaSeasonChapterSlice/CreateMangaSeasonChapter",
   async (payload: NewMangaSeasonChapterPayload, thunkapi) => {
     const { onSuccess, onError } = payload;
-    thunkapi.dispatch(setGetMangaSeasonChaptersLoading(true));
+    thunkapi.dispatch(setMangaSeasonChapterLoading(true));
     try {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API}/admin/manga-season-chapter/create-manga-season-chapter`,
@@ -75,7 +75,7 @@ export const CreateMangaSeasonChapter = createAsyncThunk(
     } catch (error) {
       console.log(error);
     } finally {
-      thunkapi.dispatch(setGetMangaSeasonChaptersLoading(false));
+      thunkapi.dispatch(setMangaSeasonChapterLoading(false));
     }
   }
 );
@@ -85,7 +85,7 @@ export const DeleteMangaSeasonChapter = createAsyncThunk(
   "MangaSeasonChapterSlice/DeleteMangaSeasonChapter",
   async (payload: DeleteMangaSeasonChapterPayload, thunkapi) => {
     const { onSuccess, onError, id } = payload;
-    thunkapi.dispatch(setGetMangaSeasonChaptersLoading(true));
+    thunkapi.dispatch(setMangaSeasonChapterLoading(true));
     try {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API}/admin/manga-season-chapter/delete-manga-season-chapter`,
@@ -109,7 +109,7 @@ export const DeleteMangaSeasonChapter = createAsyncThunk(
     } catch (error) {
       console.log(error);
     } finally {
-      thunkapi.dispatch(setGetMangaSeasonChaptersLoading(false));
+      thunkapi.dispatch(setMangaSeasonChapterLoading(false));
     }
   }
 );
