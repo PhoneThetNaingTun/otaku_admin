@@ -28,9 +28,9 @@ export function LoginForm({
       Login({
         ...login,
         onSuccess: (message) => {
+          router.push("/");
           toast({ title: message, variant: "default" });
           setLogin({ email: "", password: "" });
-          router.push("/");
         },
         onError: (error) => {
           toast({ title: error, variant: "destructive" });
@@ -52,6 +52,7 @@ export function LoginForm({
           <Input
             id="email"
             type="email"
+            value={login.email}
             placeholder="m@example.com"
             onChange={(e) => setLogin({ ...login, email: e.target.value })}
             disabled={loginLoading}
@@ -70,6 +71,7 @@ export function LoginForm({
           <Input
             id="password"
             type="password"
+            value={login.password}
             onChange={(e) => setLogin({ ...login, password: e.target.value })}
             disabled={loginLoading}
           />

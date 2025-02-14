@@ -5,29 +5,29 @@ import { AUTH_ROUTES } from "./routes";
 export default async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
   const isAuthRoute = pathname.includes(AUTH_ROUTES);
-  const token = req.cookies.get("token");
+  const token = req.cookies.get("token")?.value;
   if (pathname.startsWith("/videos")) {
     return NextResponse.next();
   }
   if (token) {
-    await fetch(`${process.env.NEXT_PUBLIC_API}/auth/admin/get-admin`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }).then((response) => {
-      if (response.ok) {
-        if (isAuthRoute) {
-          return NextResponse.redirect(new URL("/", req.url));
-        }
-        return NextResponse.next();
-      } else {
-        if (!isAuthRoute) {
-          return NextResponse.redirect(new URL("/auth/login", req.url));
-        }
-        return NextResponse.next();
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API}/admin/getAdmin`,
+      {
+        method: "GET",
+        headers: { Cookie: `token=${token}` },
       }
-    });
+    );
+    if (response.ok) {
+      if (isAuthRoute) {
+        return NextResponse.redirect(new URL("/", req.url));
+      }
+      return NextResponse.next();
+    } else {
+      if (!isAuthRoute) {
+        return NextResponse.redirect(new URL("/auth/login", req.url));
+      }
+      return NextResponse.next();
+    }
   } else {
     if (!isAuthRoute) {
       return NextResponse.redirect(new URL("/auth/login", req.url));
